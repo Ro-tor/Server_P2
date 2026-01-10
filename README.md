@@ -3,7 +3,7 @@
 Client-server application for solving the math problem: finding the maximum balance of dividing a given number by all numbers in the specified range.
 (Project)
 
-# Running the task
+# Running the task (Codespace)
 
 ## 1. Start the server (in a separate terminal):
 
