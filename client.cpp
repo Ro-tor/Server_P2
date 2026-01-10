@@ -19,20 +19,17 @@ int main() {
         return 1;
     }
     
-    // Настройка адреса сервера
     sockaddr_in serverAddr;
     memset(&serverAddr, 0, sizeof(serverAddr));
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_port = htons(SERVERPORT);
     
-    // Преобразование IP адреса
     if (inet_pton(AF_INET, SERVERIP, &serverAddr.sin_addr) <= 0) {
         std::cerr << "Неверный адрес сервера" << std::endl;
         close(clientSocket);
         return 2;
     }
 
-    // Подключение к серверу
     std::cout << "Подключение к серверу " << SERVERIP << ":" << SERVERPORT << "..." << std::endl;
     if (connect(clientSocket,
                 (sockaddr*)&serverAddr,
@@ -47,14 +44,12 @@ int main() {
     std::cout << "Формат запроса: число,предел (например: 2015,1000)" << std::endl;
     
     char buffer[BUFFER_SIZE];
-    
-    // Основной цикл взаимодействия с пользователем
+
     while (true) {
         std::cout << "Введите запрос: ";
         std::string message;
         std::getline(std::cin, message);
         
-        // Проверка на выход
         if (message == "exit") {
             send(clientSocket, "exit", 4, 0);
             std::cout << "Завершение работы..." << std::endl;

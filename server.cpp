@@ -11,7 +11,7 @@
 const int PORT = 8080;
 const int BUFFER_SIZE = 1025;
 
-// Функция для вычисления максимального остатка
+// Функция 
 int find_max_remainder(int number, int limit) {
     int max_remainder = 0;
     
@@ -26,21 +26,18 @@ int find_max_remainder(int number, int limit) {
 }
 
 int main() {
-    // Создание сокета
     int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
     if(serverSocket < 0) {
         std::cerr << "Ошибка создания сокета" << std::endl;
         return 1;
     }
     
-    // Настройка адреса сервера
     sockaddr_in serverAddr;
     memset(&serverAddr, 0, sizeof(serverAddr));
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_addr.s_addr = INADDR_ANY;
     serverAddr.sin_port = htons(PORT);
     
-    // Привязка сокета
     if (bind(serverSocket, 
              (sockaddr*)&serverAddr, 
              sizeof(serverAddr)) < 0) {
@@ -49,7 +46,6 @@ int main() {
         return 1;
     }
     
-    // Прослушивание подключений
     if (listen(serverSocket, 3) < 0) {
         close(serverSocket);
         std::cerr << "Ошибка прослушивания" << std::endl;
@@ -103,7 +99,7 @@ int main() {
         // Обработка запроса
         std::string response;
         
-        // Парсинг входных данных (формат: число,предел)
+        // Формат: число,предел
         size_t comma_pos = message.find(',');
         if (comma_pos != std::string::npos) {
             try {
@@ -138,7 +134,6 @@ int main() {
         std::cout << "Отправлено клиенту: " << response << std::endl;
     }
     
-    // Закрытие соединений
     close(clientSocket);
     close(serverSocket);
     std::cout << "Сервер завершил работу" << std::endl;
