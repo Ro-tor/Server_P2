@@ -8,37 +8,53 @@ Client-server application for solving the math problem: finding the maximum bala
 ## 1. Start the server (in a separate terminal):
 
 bash
+    
     ./server
 
 Output: 
+        
         "Сервер запущен на порту 8080..."
+        
         "Ожидание подключения клиента..."
 
 Output after connection:
+
         Клиент подключен: 127.0.0.1
 
 Output after the solution:
+
         Получено от клиента: (данные, кот. были введены пользователем)
+
         Отправлено клиенту: Максимальный остаток от деления ... на числа 1... = ...
 
 ## 2. Start the client (in a other terminal):
 
 bash
+    
     ./client
 
 Output: 
+        
         Подключение к серверу 127.0.0.1:8080...
+        
         Успешное подключение к серверу!
+        
         "Введите запрос: "
+        
         Enter the details: (Example: 2015,1000)
+        
         Answer: "Максимальный остаток от деления 2015 на числа 1...1000 = ..."
 
 ## 3. Exit request:
 
 bash
+
     exit
+
 Output: 
+        
         Завершение работы...
+        
         Клиент завершил работу
 
 ## Implementation features:
