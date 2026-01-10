@@ -9,12 +9,12 @@ Client-server application for solving the math problem: finding the maximum bala
 bash
 ./server
 
-## Вывод: "Сервер запущен на порту 8080..."
+Вывод: "Сервер запущен на порту 8080..."
 
 ## 2. Start the client (in a other terminal):
 
 bash
 ./client
 
-## Вывод: "Введите запрос: "
-## Ввод: 2015,1000
+Вывод: "Введите запрос: "
+Ввести данные: 2015,1000
